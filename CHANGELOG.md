@@ -11,4 +11,4 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [0.0.3] - 2017-11-06
 ### Changed
-- Dependencies fix
+- Dependencies are now peerDependencies
