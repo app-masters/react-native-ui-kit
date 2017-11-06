@@ -139,6 +139,7 @@ const defaultStyles = {
 };
 
 const startStyles = (appStyle) => {
+    ScreenSize = Dimensions.get('window');
     Styles = Object.assign(defaultStyles, appStyle);
 };
 
