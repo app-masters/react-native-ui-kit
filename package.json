@@ -2,7 +2,7 @@
   "name": "@app-masters/react-native-ui-kit",
   "version": "0.0.3",
   "description": "App Master's magical kit for UI solutions.",
-  "main": " ",
+  "main": "src/index.js",
   "scripts": {
     "test": "jest"
   },
