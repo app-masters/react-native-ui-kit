@@ -1,6 +1,6 @@
 {
   "name": "@app-masters/react-native-ui-kit",
-  "version": "1.0.0",
+  "version": "0.0.2",
   "description": "App Master's magical kit for UI solutions.",
   "main": " ",
   "scripts": {
@@ -23,7 +23,7 @@
     "url": "https://github.com/app-masters/react-native-ui-kit/issues"
   },
   "homepage": "https://github.com/app-masters/react-native-ui-kit#readme",
-  "dependencies": {
+  "peerDependencies": {
     "react": "^16.0.0",
     "react-native": "^0.50.1"
   }
