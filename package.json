@@ -1,0 +1,30 @@
+{
+  "name": "react-native-ui-kit",
+  "version": "1.0.0",
+  "description": "App Master's magical kit for UI solutions.",
+  "main": " ",
+  "scripts": {
+    "test": "jest",
+    "build": "rm -rf dist/ && babel src/ -d dist/",
+    "postinstall": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/app-masters/react-native-ui-kit.git"
+  },
+  "keywords": [
+    "ui",
+    "react-native",
+    "kit"
+  ],
+  "author": "AppMasters",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/app-masters/react-native-ui-kit/issues"
+  },
+  "homepage": "https://github.com/app-masters/react-native-ui-kit#readme",
+  "dependencies": {
+    "react": "^16.0.0",
+    "react-native": "^0.50.1"
+  }
+}
