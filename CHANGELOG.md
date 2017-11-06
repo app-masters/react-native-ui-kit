@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Created Button, Card, Divider, InputField, OfflineImage, Spinner and StyleGenerator files
 - Added Change log and initial documentation
 
-## [0.0.3] - 2017-11-06
+## [0.0.2 ~ 0.0.4] - 2017-11-06
 ### Changed
 - Dependencies are now peerDependencies
+- Added main in package
