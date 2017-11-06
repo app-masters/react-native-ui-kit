@@ -14,3 +14,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Dependencies are now peerDependencies
 - Added main in package
 - Index import fix
+
+## [0.0.7] - 2017-11-06
+### Changed
+- Installation of React and React Native removed
