@@ -156,4 +156,4 @@ const screenPosition = () => {
 const isPortrait = () => (screenPosition() === 'PORTRAIT');
 const isLandscape = () => (screenPosition() === 'LANDSCAPE');
 
-export { Styles, ScreenSize, startStyles, screenPosition, isPortrait, isLandscape };
+export { Styles, ScreenSize, startStyles, screenPosition, isPortrait, isLandscape, defaultStyles };
