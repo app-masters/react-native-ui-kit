@@ -22,3 +22,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [0.1.0] - 2017-11-07
 ### Added
 - Image Layer - Component for create cool image header in the background
+
+## [0.1.1 ~ 0.1.3] - 2017-11-07
+### Changed
+- Margin top removed from Image Layer
+- Default Styles are now exported too
+- Offline mode in Image Layer
