@@ -18,3 +18,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [0.0.7] - 2017-11-06
 ### Changed
 - Installation of React and React Native removed
+
+## [0.1.0] - 2017-11-07
+### Added
+- Image Layer - Component for create cool image header in the background
