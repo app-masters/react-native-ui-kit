@@ -16,7 +16,6 @@ class ImageLayer extends Component {
                     height: size,
                     left: 0,
                     right: 0,
-                    marginTop: 30,
                     alignItems: 'center',
                     justifyContent: 'center'
                 }}>
