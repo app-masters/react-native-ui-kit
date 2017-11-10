@@ -44,7 +44,7 @@ const Button = (props) => {
                 background={
                     TouchableNativeFeedback.Ripple(styles.rippleColor, false)
                 }>
-                {buttonView(styles, label, image, imageColor, subText, subTextStyle)}
+                {buttonView(styles, label, image, imageColor, subText, subTextStyle, isLoading)}
             </TouchableNativeFeedback>
         );
     } else if (raised) {
@@ -52,7 +52,7 @@ const Button = (props) => {
             <TouchableHighlight
                 underlayColor={secondaryColor}
                 onPress={onPress}>
-                {buttonView(styles, label, image, imageColor, subText, subTextStyle)}
+                {buttonView(styles, label, image, imageColor, subText, subTextStyle, isLoading)}
             </TouchableHighlight>
         );
     } else {
@@ -60,7 +60,7 @@ const Button = (props) => {
             <TouchableOpacity
                 underlayColor={secondaryColor}
                 onPress={onPress}>
-                {buttonView(styles, label, image, imageColor, subText, subTextStyle)}
+                {buttonView(styles, label, image, imageColor, subText, subTextStyle, isLoading)}
             </TouchableOpacity>
         );
     }
