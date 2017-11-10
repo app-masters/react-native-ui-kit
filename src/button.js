@@ -8,6 +8,7 @@ import {
     TouchableHighlight,
     TouchableNativeFeedback
 } from 'react-native';
+import { Spinner } from './spinner';
 
 const Button = (props) => {
     let {
@@ -21,10 +22,15 @@ const Button = (props) => {
         primaryColor,
         secondaryColor,
         textColor,
-        raised
+        raised,
+        isLoading
     } = props;
 
     let styles;
+
+    if (isLoading) {
+        onPress = () => {};
+    }
 
     if (raised) {
         styles = localStyle(style, primaryColor, textColor, 3, '#FFFFFF');
@@ -60,7 +66,7 @@ const Button = (props) => {
     }
 };
 
-const buttonView = (styles, label, image, imageColor, subText, subTextStyle) => {
+const buttonView = (styles, label, image, imageColor, subText, subTextStyle, isLoading) => {
     if (image) {
         return (
             <View style={styles.button}>
@@ -85,9 +91,13 @@ const buttonView = (styles, label, image, imageColor, subText, subTextStyle) => 
     } else {
         return (
             <View style={styles.button}>
-                <Text style={styles.text}>
-                    {Platform.OS === 'android' ? label.toUpperCase() : label}
-                </Text>
+                {isLoading
+                    ? <Spinner color={styles.text.color} />
+                    : <Text style={styles.text}>
+                        {Platform.OS === 'android' ? label.toUpperCase() : label}
+                    </Text>
+                }
+
             </View>
         );
     }
