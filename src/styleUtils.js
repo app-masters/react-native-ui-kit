@@ -2,93 +2,16 @@ import { Dimensions } from 'react-native';
 
 let ScreenSize = null;
 let Styles = null;
+let Colors = null;
 
 // Styles for all projects
-const defaultStyles = {
-    // Padding
-    pd0: {
-        padding: 0
-    },
-    pd1: {
-        padding: 4
-    },
-    pd2: {
-        padding: 8
-    },
-    pd3: {
-        padding: 16
-    },
-    pd4: {
-        padding: 32
-    },
-    pd5: {
-        padding: 64
-    },
-
-    // Margin Bottom
-    mb0: {
-        marginBottom: 0
-    },
-    mb1: {
-        marginBottom: 4
-    },
-    mb2: {
-        marginBottom: 8
-    },
-    mb3: {
-        marginBottom: 16
-    },
-    mb4: {
-        marginBottom: 32
-    },
-    mb5: {
-        marginBottom: 64
-    },
-
-    // Margin Top
-    mt0: {
-        marginTop: 0
-    },
-    mt1: {
-        marginTop: 4
-    },
-    mt2: {
-        marginTop: 8
-    },
-    mt3: {
-        marginTop: 16
-    },
-    mt4: {
-        marginTop: 32
-    },
-    mt5: {
-        marginTop: 64
-    },
-
-    // Margin
-    mg0: {
-        margin: 0
-    },
-    mg1: {
-        margin: 4
-    },
-    mg2: {
-        margin: 8
-    },
-    mg3: {
-        margin: 16
-    },
-    mg4: {
-        margin: 32
-    },
-    mg5: {
-        margin: 64
-    },
-
+const textStyles = {
     // Text
     text: {
         bigTitle: (customStyles) => {
+            const color = (Colors)? Colors.text.default : '#212121';
             return ([{
+                color,
                 fontSize: 34,
                 fontWeight: '400',
                 fontFamily: 'System',
@@ -96,7 +19,9 @@ const defaultStyles = {
             }, customStyles]);
         },
         headline: (customStyles) => {
+            const color = (Colors)? Colors.text.default : '#212121';
             return ([{
+                color,
                 fontSize: 24,
                 fontWeight: '400',
                 fontFamily: 'System',
@@ -104,7 +29,9 @@ const defaultStyles = {
             }, customStyles]);
         },
         title: (customStyles) => {
+            const color = (Colors)? Colors.text.default : '#212121';
             return ([{
+                color,
                 fontSize: 20,
                 fontWeight: '400',
                 fontFamily: 'System',
@@ -112,7 +39,9 @@ const defaultStyles = {
             }, customStyles]);
         },
         subheading: (customStyles) => {
+            const color = (Colors)? Colors.text.default : '#212121';
             return ([{
+                color,
                 fontSize: 16,
                 fontWeight: '400',
                 fontFamily: 'System',
@@ -120,7 +49,9 @@ const defaultStyles = {
             }, customStyles]);
         },
         body: (customStyles) => {
+            const color = (Colors)? Colors.text.default : '#212121';
             return ([{
+                color,
                 fontSize: 14,
                 fontWeight: '400',
                 fontFamily: 'System',
@@ -128,7 +59,9 @@ const defaultStyles = {
             }, customStyles]);
         },
         caption: (customStyles) => {
+            const color = (Colors)? Colors.text.default : '#212121';
             return ([{
+                color,
                 fontSize: 12,
                 fontWeight: '400',
                 fontFamily: 'System',
@@ -138,9 +71,47 @@ const defaultStyles = {
     }
 };
 
-const startStyles = (appStyle) => {
+const paddings = (base) => {
+    let styleObj = {};
+    for (let i = 0; i < 6; i++) {
+        styleObj['p' + i] = {padding: base * Math.pow(2,i)};
+        styleObj['pt' + i] = {paddingTop: base * Math.pow(2,i)};
+        styleObj['pb' + i] = {paddingBottom: base * Math.pow(2,i)};
+        styleObj['pl' + i] = {paddingLeft: base * Math.pow(2,i)};
+        styleObj['pr' + i] = {paddingRight: base * Math.pow(2,i)};
+        styleObj['pv' + i] = {paddingVertical: base * Math.pow(2,i)};
+        styleObj['ph' + i] = {paddingHorizontal: base * Math.pow(2,i)};
+    }
+    return styleObj;
+};
+
+const margins = (base) => {
+    let styleObj = {};
+    for (let i = 0; i < 6; i++) {
+        styleObj['m' + i] = {margin: base * Math.pow(2,i)};
+        styleObj['mt' + i] = {marginTop: base * Math.pow(2,i)};
+        styleObj['mb' + i] = {marginBottom: base * Math.pow(2,i)};
+        styleObj['ml' + i] = {marginLeft: base * Math.pow(2,i)};
+        styleObj['mr' + i] = {marginRight: base * Math.pow(2,i)};
+        styleObj['mv' + i] = {marginVertical: base * Math.pow(2,i)};
+        styleObj['mh' + i] = {marginHorizontal: base * Math.pow(2,i)};
+    }
+    return styleObj;
+};
+
+
+const startStyles = (appStyle, appColors, appBaseMetric) => {
     ScreenSize = Dimensions.get('window');
-    Styles = Object.assign(defaultStyles, appStyle);
+    if(!appBaseMetric){
+        appBaseMetric = 2;
+    }
+    Colors = appColors;
+    Styles = {
+        ...textStyles,
+        ...appStyle,
+        ...paddings(appBaseMetric),
+        ...margins(appBaseMetric)
+    };
 };
 
 const screenPosition = () => {
@@ -156,4 +127,4 @@ const screenPosition = () => {
 const isPortrait = () => (screenPosition() === 'PORTRAIT');
 const isLandscape = () => (screenPosition() === 'LANDSCAPE');
 
-export { Styles, ScreenSize, startStyles, screenPosition, isPortrait, isLandscape, defaultStyles };
+export { Colors, Styles, ScreenSize, startStyles, screenPosition, isPortrait, isLandscape, defaultStyles };

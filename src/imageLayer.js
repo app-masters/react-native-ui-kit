@@ -18,8 +18,7 @@ class ImageLayer extends Component {
                         left: 0,
                         right: 0,
                         alignItems: 'center',
-                        justifyContent: 'center'
-                    }}>
+                        justifyContent: 'center'}}>
                         <OfflineImage
                             online={image}
                             offline={defaultImage}
