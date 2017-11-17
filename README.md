@@ -14,10 +14,23 @@ This is an UI kit for React Native with the common components used in App Master
 
 ## Usage
 
+Before start, you must have a style file like (?).
+
 ````
+$ npm install @app-masters/react-native-ui-kit --save-dev
 
-$ npm install @app-masters/react-native-ui-kit
+````
+Import your styles files and startStyles:
 
+```
+import { startStyles } from '@app-masters/react-native-ui-kit';
+import AppStyles from './styles/styles';
+```
+
+In your app constructor:
+
+```
+startStyles(AppStyles);
 ````
 
 ## Description
