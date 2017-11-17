@@ -30,9 +30,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Offline mode in Image Layer
 - Button now have an optional loading state (isLoading)
 
-## [0.1.6] - 2017-11-07
+## [0.1.6 ~ 0.1.7] - 2017-11-07
 ### Added
 - More margins and paddings in the default styles!
 ### Changed
 - Default color for texts (need to pass Colors Object in startStyles)
 - Base number of paddings and margins in startStyles
+- Creation of defaultStyles

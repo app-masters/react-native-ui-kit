@@ -9,7 +9,7 @@ const textStyles = {
     // Text
     text: {
         bigTitle: (customStyles) => {
-            const color = (Colors)? Colors.text.default : '#212121';
+            const color = (Colors) ? Colors.text.default : '#212121';
             return ([{
                 color,
                 fontSize: 34,
@@ -19,7 +19,7 @@ const textStyles = {
             }, customStyles]);
         },
         headline: (customStyles) => {
-            const color = (Colors)? Colors.text.default : '#212121';
+            const color = (Colors) ? Colors.text.default : '#212121';
             return ([{
                 color,
                 fontSize: 24,
@@ -29,7 +29,7 @@ const textStyles = {
             }, customStyles]);
         },
         title: (customStyles) => {
-            const color = (Colors)? Colors.text.default : '#212121';
+            const color = (Colors) ? Colors.text.default : '#212121';
             return ([{
                 color,
                 fontSize: 20,
@@ -39,7 +39,7 @@ const textStyles = {
             }, customStyles]);
         },
         subheading: (customStyles) => {
-            const color = (Colors)? Colors.text.default : '#212121';
+            const color = (Colors) ? Colors.text.default : '#212121';
             return ([{
                 color,
                 fontSize: 16,
@@ -49,7 +49,7 @@ const textStyles = {
             }, customStyles]);
         },
         body: (customStyles) => {
-            const color = (Colors)? Colors.text.default : '#212121';
+            const color = (Colors) ? Colors.text.default : '#212121';
             return ([{
                 color,
                 fontSize: 14,
@@ -59,7 +59,7 @@ const textStyles = {
             }, customStyles]);
         },
         caption: (customStyles) => {
-            const color = (Colors)? Colors.text.default : '#212121';
+            const color = (Colors) ? Colors.text.default : '#212121';
             return ([{
                 color,
                 fontSize: 12,
@@ -74,13 +74,13 @@ const textStyles = {
 const paddings = (base) => {
     let styleObj = {};
     for (let i = 0; i < 6; i++) {
-        styleObj['p' + i] = {padding: base * Math.pow(2,i)};
-        styleObj['pt' + i] = {paddingTop: base * Math.pow(2,i)};
-        styleObj['pb' + i] = {paddingBottom: base * Math.pow(2,i)};
-        styleObj['pl' + i] = {paddingLeft: base * Math.pow(2,i)};
-        styleObj['pr' + i] = {paddingRight: base * Math.pow(2,i)};
-        styleObj['pv' + i] = {paddingVertical: base * Math.pow(2,i)};
-        styleObj['ph' + i] = {paddingHorizontal: base * Math.pow(2,i)};
+        styleObj['p' + i] = {padding: base * Math.pow(2, i)};
+        styleObj['pt' + i] = {paddingTop: base * Math.pow(2, i)};
+        styleObj['pb' + i] = {paddingBottom: base * Math.pow(2, i)};
+        styleObj['pl' + i] = {paddingLeft: base * Math.pow(2, i)};
+        styleObj['pr' + i] = {paddingRight: base * Math.pow(2, i)};
+        styleObj['pv' + i] = {paddingVertical: base * Math.pow(2, i)};
+        styleObj['ph' + i] = {paddingHorizontal: base * Math.pow(2, i)};
     }
     return styleObj;
 };
@@ -88,29 +88,29 @@ const paddings = (base) => {
 const margins = (base) => {
     let styleObj = {};
     for (let i = 0; i < 6; i++) {
-        styleObj['m' + i] = {margin: base * Math.pow(2,i)};
-        styleObj['mt' + i] = {marginTop: base * Math.pow(2,i)};
-        styleObj['mb' + i] = {marginBottom: base * Math.pow(2,i)};
-        styleObj['ml' + i] = {marginLeft: base * Math.pow(2,i)};
-        styleObj['mr' + i] = {marginRight: base * Math.pow(2,i)};
-        styleObj['mv' + i] = {marginVertical: base * Math.pow(2,i)};
-        styleObj['mh' + i] = {marginHorizontal: base * Math.pow(2,i)};
+        styleObj['m' + i] = {margin: base * Math.pow(2, i)};
+        styleObj['mt' + i] = {marginTop: base * Math.pow(2, i)};
+        styleObj['mb' + i] = {marginBottom: base * Math.pow(2, i)};
+        styleObj['ml' + i] = {marginLeft: base * Math.pow(2, i)};
+        styleObj['mr' + i] = {marginRight: base * Math.pow(2, i)};
+        styleObj['mv' + i] = {marginVertical: base * Math.pow(2, i)};
+        styleObj['mh' + i] = {marginHorizontal: base * Math.pow(2, i)};
     }
     return styleObj;
 };
 
+let defaultStyles = {...textStyles, ...paddings(2), ...margins(2)};
 
 const startStyles = (appStyle, appColors, appBaseMetric) => {
     ScreenSize = Dimensions.get('window');
-    if(!appBaseMetric){
+    if (!appBaseMetric) {
         appBaseMetric = 2;
     }
     Colors = appColors;
+    defaultStyles = {...textStyles, ...paddings(appBaseMetric), ...margins(appBaseMetric)};
     Styles = {
-        ...textStyles,
-        ...appStyle,
-        ...paddings(appBaseMetric),
-        ...margins(appBaseMetric)
+        ...defaultStyles,
+        ...appStyle
     };
 };
 
