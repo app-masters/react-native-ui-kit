@@ -97,7 +97,7 @@ const buttonView = (styles, label, image, imageColor, subText, subTextStyle, isL
                         <Spinner color={styles.text.color} />
                     </View>
                     : <Text style={styles.text}>
-                        {Platform.OS === 'android' ? label.toUpperCase() : label}
+                        {(Platform.OS === 'android' && !keepCapitalize) ? label.toUpperCase() : label}
                     </Text>
                 }
 
