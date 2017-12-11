@@ -23,7 +23,8 @@ const Button = (props) => {
         secondaryColor,
         textColor,
         raised,
-        isLoading
+        isLoading,
+        keepCapitalize
     } = props;
 
     let styles;
@@ -52,7 +53,7 @@ const Button = (props) => {
             <TouchableHighlight
                 underlayColor={secondaryColor}
                 onPress={onPress}>
-                {buttonView(styles, label, image, imageColor, subText, subTextStyle, isLoading)}
+                {buttonView(styles, label, image, imageColor, subText, subTextStyle, isLoading, keepCapitalize)}
             </TouchableHighlight>
         );
     } else {
@@ -60,13 +61,13 @@ const Button = (props) => {
             <TouchableOpacity
                 underlayColor={secondaryColor}
                 onPress={onPress}>
-                {buttonView(styles, label, image, imageColor, subText, subTextStyle, isLoading)}
+                {buttonView(styles, label, image, imageColor, subText, subTextStyle, isLoading, keepCapitalize)}
             </TouchableOpacity>
         );
     }
 };
 
-const buttonView = (styles, label, image, imageColor, subText, subTextStyle, isLoading) => {
+const buttonView = (styles, label, image, imageColor, subText, subTextStyle, isLoading, keepCapitalize) => {
     if (image) {
         return (
             <View style={styles.button}>
@@ -80,7 +81,7 @@ const buttonView = (styles, label, image, imageColor, subText, subTextStyle, isL
                         source={image} /></View>
                 <View style={{flex: 3, alignItems: 'flex-start'}}>
                     <Text style={styles.text}>
-                        {Platform.OS === 'android' ? label.toUpperCase() : label}
+                        {(Platform.OS === 'android' && !keepCapitalize) ? label.toUpperCase() : label}
                     </Text>
                     <Text style={subTextStyle}>
                         {subText}
@@ -92,7 +93,9 @@ const buttonView = (styles, label, image, imageColor, subText, subTextStyle, isL
         return (
             <View style={styles.button}>
                 {isLoading
-                    ? <Spinner color={styles.text.color} />
+                    ? <View style={{justifyContent:'center', alignItems: 'center'}}>
+                        <Spinner color={styles.text.color} />
+                    </View>
                     : <Text style={styles.text}>
                         {Platform.OS === 'android' ? label.toUpperCase() : label}
                     </Text>
