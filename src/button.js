@@ -45,7 +45,7 @@ const Button = (props) => {
                 background={
                     TouchableNativeFeedback.Ripple(styles.rippleColor, false)
                 }>
-                {buttonView(styles, label, image, imageColor, subText, subTextStyle, isLoading)}
+                {buttonView(styles, label, image, imageColor, subText, subTextStyle, isLoading, keepCapitalize)}
             </TouchableNativeFeedback>
         );
     } else if (raised) {
