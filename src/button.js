@@ -13,6 +13,7 @@ import { Spinner } from './spinner';
 const Button = (props) => {
     let {
         style,
+        textStyle,
         onPress,
         label,
         image,
@@ -34,9 +35,9 @@ const Button = (props) => {
     }
 
     if (raised) {
-        styles = localStyle(style, primaryColor, textColor, 3, '#FFFFFF');
+        styles = localStyle(style, primaryColor, textColor, 3, '#FFFFFF', textStyle);
     } else {
-        styles = localStyle(style, 'transparent', primaryColor, 0, '#999999');
+        styles = localStyle(style, 'transparent', primaryColor, 0, '#999999', textStyle);
     }
     if (Platform.OS === 'android' && Platform.Version >= 21) {
         return (
@@ -107,7 +108,7 @@ const buttonView = (styles, label, image, imageColor, subText, subTextStyle, isL
 };
 
 // Style definido de acordo com os guidelines do Material Design
-const localStyle = (style, color, textColor, elevation, rippleColor) => {
+const localStyle = (style, color, textColor, elevation, rippleColor, textStyle) => {
     return ({
         button: [{
             flexDirection: 'row',
@@ -134,7 +135,8 @@ const localStyle = (style, color, textColor, elevation, rippleColor) => {
                 android: {
                     fontWeight: 'bold'
                 }
-            })
+            }),
+            ...textStyle
         },
         rippleColor
     });
