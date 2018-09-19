@@ -72,29 +72,29 @@ const buttonView = (styles, label, image, imageColor, subText, subTextStyle, isL
     if (image) {
         return (
             <View style={styles.button}>
-                <View style={{flex: 1, alignItems: 'center'}}>
+                <View style={{position: 'absolute', left: 20, backgroundColor: '#f0f'}}>
                     <Image
                         style={{
                             resizeMode: 'contain',
+                            width: 30,
                             height: 30,
                             tintColor: imageColor
                         }}
-                        source={image} /></View>
-                <View style={{flex: 3, alignItems: 'flex-start'}}>
-                    <Text style={styles.text}>
-                        {(Platform.OS === 'android' && !keepCapitalize) ? label.toUpperCase() : label}
-                    </Text>
-                    <Text style={subTextStyle}>
-                        {subText}
-                    </Text>
+                        source={image} />
                 </View>
+                <Text style={styles.text}>
+                    {(Platform.OS === 'android' && !keepCapitalize) ? label.toUpperCase() : label}
+                </Text>
+                <Text style={subTextStyle}>
+                    {subText}
+                </Text>
             </View>
         );
     } else {
         return (
             <View style={styles.button}>
                 {isLoading
-                    ? <View style={{justifyContent:'center', alignItems: 'center'}}>
+                    ? <View style={{justifyContent: 'center', alignItems: 'center'}}>
                         <Spinner color={styles.text.color} />
                     </View>
                     : <Text style={styles.text}>
