@@ -72,7 +72,7 @@ const buttonView = (styles, label, image, imageColor, subText, subTextStyle, isL
     if (image) {
         return (
             <View style={styles.button}>
-                <View style={{position: 'absolute', left: 20, backgroundColor: '#f0f'}}>
+                <View style={{position: 'absolute', left: 20, height: '100%', alignItems: 'center', justifyContent: 'center'}}>
                     <Image
                         style={{
                             resizeMode: 'contain',
